@@ -1,0 +1,172 @@
+.banner {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tournament-info {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 35px;
+}
+
+.tournament-card {
+    background-color: #111;
+    padding: 15px;
+    border-radius: 14px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+.tournament-card img {
+    width: 140px;
+    height: auto;
+}
+
+.tournament-details h2 {
+    margin-bottom: 10px;
+}
+
+.tournament-details p {
+    margin: 6px 0;
+    opacity: 0.9;
+    color: #f2f2f2
+}
+
+
+.participants-container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.participant {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background-color: #111;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.participant img {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.participant span {
+    font-size: 15px; 
+    color: #fff;
+    font-weight: 500;
+}
+
+.participants {
+    background-color: #1e1e1e;
+    padding: 25px;
+    border-radius: 16px;
+    width: 400px;     
+    overflow-y: auto;  
+}
+
+.participants h2 {
+    margin-bottom: 15px;
+}
+
+.top8 {
+    width: 100%;
+    max-width: none;
+    background-color: #141414;
+    padding: 20px;
+    border-radius: 14px;
+}
+
+.top8 h2 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.phase {
+    margin-bottom: 20px;
+}
+
+.phase h3 {
+    color: #ff5555;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+/* Match */
+.match {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1e1e1e;
+    padding: 15px 20px;
+    border-radius: 14px;
+    width: 100%;
+}
+
+/* Players más grandes */
+.player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.player img {
+    width: 60px;
+    height: 60px;
+}
+
+.player span {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.score {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background-color: #e04d4d; /* rojo crema */
+    padding: 10px 18px;
+    border-radius: 12px;
+
+    border: 2px solid #d64545;
+}
+
+/* Números */
+.score .points {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Separador */
+.score .dash {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+}

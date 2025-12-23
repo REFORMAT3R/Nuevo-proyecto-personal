@@ -62,10 +62,8 @@
     padding: 20px;
 
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;   /* 🔑 CLAVE */
     gap: 30px;
-    justify-content: center;
 
     background:
         linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
@@ -80,8 +78,20 @@
     color: #ff3333;
 }
 
+.section-title {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: #fff;
+}
 
-/* Tarjetas */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 35px;              
+  justify-items: center;
+}
+
+
 .card {
     background: linear-gradient(145deg, #1f1f1f, #2e2e2e);
     padding: 18px;
