@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Smash Hub | Crear cuenta</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+    <div class="register-container">
+
+        <h1>Crear cuenta</h1>
+        <p>Únete a Smash Hub</p>
+
+        <form id="registerForm">
+
+            <label>Nombres</label>
+            <input type="text" id="nombres" required>
+
+            <label>Apellidos</label>
+            <input type="text" id="apellidos" required>
+
+            <label>Correo electrónico</label>
+            <input type="email" id="correo" required>
+
+            <label>Fecha de nacimiento</label>
+            <input type="date" id="fecha" required>
+
+            <label>Género</label>
+            <select id="genero" required>
+                <option value="">Seleccionar</option>
+                <option>Masculino</option>
+                <option>Femenino</option>
+                <option>Otro</option>
+            </select>
+
+            <label>Nombre de usuario</label>
+            <input type="text" id="usuario" required>
+
+            <label>Contraseña</label>
+            <input type="password" id="password" required>
+
+            <button type="submit">Crear cuenta</button>
+
+        </form>
+
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>
