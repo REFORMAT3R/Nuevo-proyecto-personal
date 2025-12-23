@@ -1,0 +1,48 @@
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 240px));
+  gap: 30px;
+  justify-content: center;
+}
+
+.player-card {
+  width: 240px;
+  min-height: 240px;
+
+  background: #111;
+  border-radius: 12px;
+  padding: 15px;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.player-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* IMAGEN */
+.player-card img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* TOP + NOMBRE */
+.player-card h3 {
+  margin: 8px 0;
+  font-size: 1.1rem;
+  color: #f5c542;
+}
+
+/* TEXTO */
+.player-card p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #ccc;
+}
