@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Torneos Esports</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Smash Hub</h1>
+    </header>
+
+    <main class="grid-container">
+        
+        <section class="sidebar">
+            <h2>Navegación</h2>
+            <ul>
+                <li><a href="{{ url_for('proximos_page') }}">Próximos torneos</a></li>
+                <li><a href="{{ url_for('anteriores_page') }}">Torneos terminados</a></li>
+                <li><a href="{{ url_for('jugadores_page') }}">Jugadores</a></li>
+            </ul>
+        </section>
+ 
+        <section class="content">
+
+            <h2 class="section-title">Próximos torneos</h2>
+
+            <div class="cards-grid">
+
+                <!-- Afterburner -->
+                <a href="{{ url_for('torneo_page', tipo='proximos', slug='_afterburner') }}" class="card-link">
+                    <div class="card">
+                        <img src="{{ url_for('static', filename='Torneos/afterburner.webp') }}">
+                        <h3>Afterburner 2026</h3>
+                        <p>Ene 16 - Ene 18, 2026</p>
+                        <p>Auburn, IN</p>
+                    </div>
+                </a>
+
+                <!-- LMBM -->
+                <a href="{{ url_for('torneo_page', tipo='proximos', slug='LMBM') }}" class="card-link">
+                    <div class="card">
+                        <img src="{{ url_for('static', filename='Torneos/LMBM.webp') }}">
+                        <h3>Let's Make BIG Moves 2026</h3>
+                        <p>Ene 23 - Ene 25, 2026</p>
+                        <p>New York, NY</p>
+                    </div>
+                </a>
+
+                <!-- Cavalier 7 -->
+                <a href="{{ url_for('torneo_page', tipo='proximos', slug='Cavalier7') }}" class="card-link">
+                    <div class="card">
+                        <img src="{{ url_for('static', filename='Torneos/cavalier clash 7.png') }}">
+                        <h3>Cavalier Clash 7</h3>
+                        <p>Feb 07 - Feb 08, 2026</p>
+                        <p>Charlottesville, VA</p>
+                    </div>
+                </a>
+
+                <!-- Genesis X3 -->
+                <a href="{{ url_for('torneo_page', tipo='proximos', slug='GenesisX3') }}" class="card-link">
+                    <div class="card">
+                        <img src="{{ url_for('static', filename='Torneos/genesis x3.webp') }}">
+                        <h3>Genesis X3</h3>
+                        <p>Feb 13 - Feb 15, 2026</p>
+                        <p>San Jose, CA</p>
+                    </div>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Smash Hub</p>
+    </footer>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Smash Hub | Crear cuenta</title>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
 </head>
 <body>
 
@@ -46,6 +46,6 @@
 
     </div>
 
-    <script src="register.js"></script>
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
 </body>
 </html>

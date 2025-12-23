@@ -6,13 +6,13 @@ form.addEventListener("submit", function (e) {
     const nombres = document.getElementById("nombres").value.trim();
     const apellidos = document.getElementById("apellidos").value.trim();
     const correo = document.getElementById("correo").value.trim();
-    const fecha = document.getElementById("fecha").value;
+    const nacimiento = document.getElementById("fecha").value;
     const genero = document.getElementById("genero").value;
     const usuario = document.getElementById("usuario").value.trim();
-    const password = document.getElementById("password").value.trim();
+    const contrasena = document.getElementById("password").value.trim();
 
-    // ===== VALIDACIONES (NO SE TOCAN) =====
-    if (!nombres || !apellidos || !correo || !fecha || !genero || !usuario || !password) {
+    // Validaciones básicas
+    if (!nombres || !apellidos || !correo || !nacimiento || !genero || !usuario || !contrasena) {
         alert("Completa todos los campos");
         return;
     }
@@ -22,42 +22,43 @@ form.addEventListener("submit", function (e) {
         return;
     }
 
-    if (password.length < 6) {
+    if (contrasena.length < 6) {
         alert("La contraseña debe tener al menos 6 caracteres");
         return;
     }
 
-    const nacimiento = new Date(fecha);
+    const fechaNac = new Date(nacimiento);
     const hoy = new Date();
-    const edad = hoy.getFullYear() - nacimiento.getFullYear();
-
+    const edad = hoy.getFullYear() - fechaNac.getFullYear();
     if (edad < 13) {
         alert("Debes tener al menos 13 años");
         return;
     }
 
-    // ===== INSERT EN MYSQL (FLASK) =====
-    fetch("http://127.0.0.1:5000/register", {
+    // Enviar datos a Flask
+    fetch("/api/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            nombres: nombres,
-            apellidos: apellidos,
-            correo: correo,
-            fecha: fecha,
-            genero: genero,
-            usuario: usuario,
-            password: password
+            nombres,
+            apellidos,
+            correo,
+            nacimiento,
+            genero,
+            usuario,
+            contrasena
         })
     })
     .then(res => {
         if (res.ok) {
             alert("Cuenta creada correctamente");
-            window.location.href = "login.html";
-        } else {
+            window.location.href = "/";  
+        } else if (res.status === 409) {
             alert("El usuario o correo ya existe");
+        } else {
+            alert("Error al registrar");
         }
     })
     .catch(err => {
