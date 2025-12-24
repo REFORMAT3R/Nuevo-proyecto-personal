@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 23-12-2025 a las 19:43:36
+-- Tiempo de generación: 24-12-2025 a las 03:50:57
 -- Versión del servidor: 8.4.7
 -- Versión de PHP: 8.3.28
 
@@ -45,9 +45,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`nombres`, `apellidos`, `email`, `nacimiento`, `genero`, `usuario`, `contrasena`) VALUES
-('Jotar', 'Daza Quispe', 'jotar@gmail.com', '2000-05-10', 'Masculino', 'jotar18', '$2b$12$yXQy6xwE8vQ6nKq3p8gC6u4pHf8E2kY5bFzX7pK8x8b7m5sC2R6dS'),
-('Teodoro', 'Meza Cuba', 'teodoro@gmail.com', '1999-08-21', 'Masculino', 'mottanga', '$2b$12$yXQy6xwE8vQ6nKq3p8gC6u4pHf8E2kY5bFzX7pK8x8b7m5sC2R6dS'),
-('Piero', 'Valdivia Vargas', 'piero@gmail.com', '2001-03-15', 'Masculino', 'pierewe', '$2b$12$yXQy6xwE8vQ6nKq3p8gC6u4pHf8E2kY5bFzX7pK8x8b7m5sC2R6dS');
+('Jotar', 'Daza', 'jotar18@gmail.com', '2006-06-22', 'Masculino', 'jotar18', '$2b$12$cpVXA5ZH7ONFWHadrNY/s.iKquE6A.hWTilujjRjlJs.GYIiwCS52');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

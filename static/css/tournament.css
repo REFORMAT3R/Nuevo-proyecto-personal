@@ -1,131 +1,234 @@
 .banner {
     width: 100%;
-    height: 300px;
+    height: 350px;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 16px;
+    border: 4px solid #b30000;
+    box-shadow: 0 8px 30px rgba(179, 0, 0, 0.5);
+    position: relative;
+}
+
+.banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.7));
+    pointer-events: none;
 }
 
 .banner img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.banner:hover img {
+    transform: scale(1.05);
 }
 
 .tournament-layout {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
 }
-
 
 .tournament-info {
     display: flex;
     gap: 25px;
     align-items: center;
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 14px;
+    background: linear-gradient(145deg, #252525, #1a1a1a);
+    padding: 25px;
+    border-radius: 16px;
     margin-bottom: 35px;
     flex: 0 0 480px;
     margin: 20px auto;
+    border: 3px solid #b30000;
+    box-shadow: 0 8px 25px rgba(179, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.tournament-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(255, 51, 51, 0.5);
+    border-color: #ff3333;
 }
 
 .tournament-card {
-    background-color: #111;
-    padding: 15px;
+    background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+    padding: 18px;
     border-radius: 14px;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    border: 2px solid #8b0000;
+    transition: all 0.3s ease;
+}
+
+.tournament-card:hover {
+    box-shadow: 0 0 30px rgba(255, 51, 51, 0.7);
+    border-color: #ff3333;
 }
 
 .tournament-card img {
     width: 140px;
     height: auto;
+    filter: drop-shadow(0 4px 10px rgba(255, 51, 51, 0.4));
 }
 
 .tournament-details h2 {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    color: #ff3333;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 900;
+    text-shadow: 0 0 15px rgba(255, 51, 51, 0.6);
 }
 
 .tournament-details p {
-    margin: 6px 0;
-    opacity: 0.9;
-    color: #f2f2f2
+    margin: 8px 0;
+    opacity: 0.95;
+    color: #f2f2f2;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 500;
 }
 
+.tournament-details p strong {
+    color: #ff5555;
+    font-weight: 700;
+}
 
 .participants-container {
     list-style: none;
     padding: 0;
     margin: 0;
-    
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
 }
 
 .participant {
     display: flex;
     align-items: center;
-    gap: 8px;
-
-    background-color: #111;
+    gap: 10px;
+    background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
     color: #fff;
-    padding: 6px 10px;
-    border-radius: 8px;
+    padding: 8px 14px;
+    border-radius: 10px;
     font-size: 14px;
+    border: 2px solid #8b0000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.participant:hover {
+    background: linear-gradient(135deg, #b30000, #8b0000);
+    border-color: #ff3333;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 51, 51, 0.5);
 }
 
 .participant img {
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
     object-fit: cover;
+    border: 2px solid #ff3333;
+    box-shadow: 0 0 8px rgba(255, 51, 51, 0.4);
 }
 
 .participant span {
     font-size: 15px; 
     color: #fff;
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .participants {
-    background-color: #1e1e1e;
-    padding: 25px;
+    background: linear-gradient(145deg, #252525, #1a1a1a);
+    padding: 30px;
     border-radius: 16px;
-
     max-width: 390px;      
     max-height: 520px;     
     overflow-y: auto;
-
     flex: 0 0 auto;   
     margin: 20px auto;
+    border: 3px solid #b30000;
+    box-shadow: 0 8px 25px rgba(179, 0, 0, 0.4);
+    scrollbar-width: thin;
+    scrollbar-color: #ff3333 #1a1a1a;
+}
+
+.participants::-webkit-scrollbar {
+    width: 8px;
+}
+
+.participants::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 10px;
+}
+
+.participants::-webkit-scrollbar-thumb {
+    background: #ff3333;
+    border-radius: 10px;
+}
+
+.participants::-webkit-scrollbar-thumb:hover {
+    background: #ff5555;
 }
 
 .participants h2 {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    color: #ff3333;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 900;
+    text-shadow: 0 0 15px rgba(255, 51, 51, 0.6);
+    border-bottom: 3px solid #ff3333;
+    padding-bottom: 10px;
 }
 
 .top8 {
     width: 100%;
     max-width: none;
-    background-color: #141414;
-    padding: 20px;
-    border-radius: 14px;
+    background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+    padding: 30px;
+    border-radius: 16px;
+    border: 3px solid #b30000;
+    box-shadow: 0 8px 30px rgba(179, 0, 0, 0.5);
 }
 
 .top8 h2 {
     color: #ffffff;
-    margin-bottom: 20px;
-    font-size: 40px;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 900;
+    text-shadow: 0 0 25px rgba(255, 51, 51, 0.8);
+    border-bottom: 4px solid #ff3333;
+    padding-bottom: 15px;
 }
 
 .phase {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .phase h3 {
     color: #ff5555;
-    margin-bottom: 8px;
-    font-size: 20px;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-shadow: 0 0 12px rgba(255, 85, 85, 0.6);
 }
 
 /* Match */
@@ -133,53 +236,88 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #1e1e1e;
-    padding: 15px 20px;
+    background: linear-gradient(90deg, #252525, #1e1e1e);
+    padding: 20px 25px;
     border-radius: 14px;
     width: 100%;
+    margin-bottom: 15px;
+    border: 2px solid #8b0000;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.match:hover {
+    transform: translateX(5px);
+    border-color: #ff3333;
+    box-shadow: 0 8px 30px rgba(255, 51, 51, 0.5);
 }
 
 /* Players más grandes */
 .player {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.match:hover .player {
+    transform: scale(1.05);
 }
 
 .player img {
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 3px solid #ff3333;
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.5);
+    transition: all 0.3s ease;
+}
+
+.player:hover img {
+    border-color: #ff5555;
+    box-shadow: 0 0 25px rgba(255, 85, 85, 0.8);
 }
 
 .player span {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: 800;
     color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .score {
     display: flex;
     align-items: center;
-    gap: 10px;
-
-    background-color: #e04d4d; /* rojo crema */
-    padding: 10px 18px;
+    gap: 12px;
+    background: linear-gradient(135deg, #ff3333, #cc0000);
+    padding: 12px 22px;
     border-radius: 12px;
+    border: 3px solid #b30000;
+    box-shadow: 0 6px 20px rgba(255, 51, 51, 0.5);
+    transition: all 0.3s ease;
+}
 
-    border: 2px solid #d64545;
+.match:hover .score {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(255, 51, 51, 0.7);
 }
 
 /* Números */
 .score .points {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 30px;
-    font-weight: 700;
+    font-family: 'Orbitron', 'Segoe UI', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
     color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
 
 /* Separador */
 .score .dash {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 20px;
+    font-family: 'Orbitron', 'Segoe UI', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 }

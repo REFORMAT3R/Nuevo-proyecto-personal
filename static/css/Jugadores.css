@@ -1,48 +1,131 @@
 .players-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 240px));
-  gap: 30px;
+  gap: 35px;
   justify-content: center;
+  padding: 20px 0;
 }
 
 .player-card {
   width: 240px;
-  min-height: 240px;
+  min-height: 260px;
 
-  background: #111;
-  border-radius: 12px;
-  padding: 15px;
+  background: linear-gradient(145deg, #1f1f1f, #0f0f0f);
+  border-radius: 16px;
+  padding: 20px;
   color: #fff;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+
+  border: 3px solid #b30000;
+  box-shadow: 0 8px 25px rgba(179, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.player-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff0000, #ff3333, #b30000, #8b0000);
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.player-card:hover::before {
+  opacity: 0.3;
 }
 
 .player-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(255, 51, 51, 0.6),
+              0 0 30px rgba(255, 0, 0, 0.4);
+  border-color: #ff3333;
 }
 
 /* IMAGEN */
 .player-card img {
-  width: 90px;
-  height: 90px;
+  width: 110px;
+  height: 110px;
   object-fit: contain;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 4px 15px rgba(255, 51, 51, 0.4));
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  padding: 8px;
+  background: linear-gradient(135deg, rgba(179, 0, 0, 0.2), rgba(139, 0, 0, 0.1));
+}
+
+.player-card:hover img {
+  filter: drop-shadow(0 6px 25px rgba(255, 51, 51, 0.7));
+  transform: scale(1.1) rotate(2deg);
 }
 
 /* TOP + NOMBRE */
 .player-card h3 {
-  margin: 8px 0;
-  font-size: 1.1rem;
-  color: #f5c542;
+  margin: 12px 0 8px 0;
+  font-size: 1.3rem;
+  color: #ffcc00;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 15px rgba(255, 204, 0, 0.6),
+               0 0 30px rgba(255, 204, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.player-card:hover h3 {
+  color: #ffd700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
+               0 0 40px rgba(255, 215, 0, 0.4);
+  transform: scale(1.05);
 }
 
 /* TEXTO */
 .player-card p {
-  margin: 4px 0;
-  font-size: 0.9rem;
-  color: #ccc;
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: #e0e0e0;
+  font-weight: 600;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.player-card p strong {
+  color: #ff5555;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(255, 85, 85, 0.4);
+}
+
+.player-card:hover p {
+  color: #ffffff;
+}
+
+/* Efecto adicional de brillo en hover */
+.player-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 51, 51, 0.2), transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+  pointer-events: none;
+}
+
+.player-card:hover::after {
+  width: 300px;
+  height: 300px;
 }
