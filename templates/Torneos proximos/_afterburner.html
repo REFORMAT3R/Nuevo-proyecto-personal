@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Afterburner 2026 | Smash Hub</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../tournament.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tournament.css') }}">
 </head>
 <body>
 
@@ -17,78 +19,90 @@
         <section class="sidebar">
             <h2>Navegación</h2>
             <ul>
-                <li><a href="../Proximos.html">Próximos torneos</a></li>
-                <li><a href="../Anteriores.html">Torneos terminados</a></li>
-                <li><a href="../Jugadores/Jugadores.html">Jugadores</a></li>
+                <li><a href="{{ url_for('proximos_page') }}">Próximos torneos</a></li>
+                <li><a href="{{ url_for('anteriores_page') }}">Torneos terminados</a></li>
+                <li><a href="{{ url_for('jugadores_page') }}">Jugadores</a></li>
             </ul>
         </section>
 
         <section class="content">
 
+            <!-- Banner -->
             <section class="banner">
-                <img src="https://images.start.gg/images/tournament/806744/image-d4b6d0afad64dfbc68a27c0412305944.png" alt="Afterburner Banner">
-            </section>
-            <section class="tournament-info">
-
-                <div class="tournament-card">
-                    <img src="../Torneos/afterburner.webp" alt="Afterburner Logo">
-                </div>
-
-                <div class="tournament-details">
-                    <h2>Afterburner 2026</h2>
-                    <p><strong>Tier:</strong> A</p>
-                    <p><strong>Fecha:</strong> Ene 16 - Ene 18, 2026</p>
-                    <p><strong>Lugar:</strong> Auburn, Indiana</p>
-                </div>
-
+                <img src="https://images.start.gg/images/tournament/806744/image-d4b6d0afad64dfbc68a27c0412305944.png"
+                     alt="Afterburner Banner">
             </section>
 
-            <section class="participants">
-                <h2>Participantes más relevantes</h2>
+            <!-- CONTENEDOR FLEX -->
+            <div class="tournament-layout">
 
-                <ul class="participants-container">
+                <!-- INFO TORNEO -->
+                <section class="tournament-info">
 
-                    <li class="participant">
-                        <img src="../PJ/mr game and watch.png" alt="">
-                        <span>Miya</span>
-                    </li>
+                    <div class="tournament-card">
+                        <img src="{{ url_for('static', filename='Torneos/afterburner.webp') }}"
+                             alt="Afterburner Logo">
+                    </div>
 
-                    <li class="participant">
-                        <img src="../PJ/Mega man.png" alt="">
-                        <span>Peabnut</span>
-                    </li>
+                    <div class="tournament-details">
+                        <h2>Afterburner 2026</h2>
+                        <p><strong>Tier:</strong> A</p>
+                        <p><strong>Fecha:</strong> Ene 16 - Ene 18, 2026</p>
+                        <p><strong>Lugar:</strong> Auburn, Indiana</p>
+                    </div>
 
-                    <li class="participant">
-                        <img src="../PJ/Fox.png" alt="">
-                        <span>Light</span>
-                    </li>
+                </section>
 
-                    <li class="participant">
-                        <img src="../PJ/rob.png" alt="">
-                        <span>Zomba</span>
-                    </li>
+                <!-- PARTICIPANTES -->
+                <section class="participants">
+                    <h2>Participantes más relevantes</h2>
 
-                    <li class="participant">
-                        <img src="../PJ/roy.png" alt="">
-                        <span>Kola</span>
-                    </li>
+                    <ul class="participants-container">
 
-                    <li class="participant">
-                        <img src="../PJ/rob.png" alt="">
-                        <span>MKBigBoss</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/mr game and watch.png') }}">
+                            <span>Miya</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/palutena.png" alt="">
-                        <span>Lui$</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/Mega man.png') }}">
+                            <span>Peabnut</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/snake.png" alt="">
-                        <span>ApolloKage</span>
-                    </li>
-                </ul>
-            </section>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/Fox.png') }}">
+                            <span>Light</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/rob.png') }}">
+                            <span>Zomba</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/roy.png') }}">
+                            <span>Kola</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/rob.png') }}">
+                            <span>MKBigBoss</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/palutena.png') }}">
+                            <span>Lui$</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/snake.png') }}">
+                            <span>ApolloKage</span>
+                        </li>
+
+                    </ul>
+                </section>
+
+            </div>
 
         </section>
 

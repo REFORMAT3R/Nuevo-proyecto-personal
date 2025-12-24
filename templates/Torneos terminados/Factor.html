@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>S Factor 12 | Smash Hub</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../tournament.css">
+    <!-- CSS con Flask -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tournament.css') }}">
+
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 </head>
-<body>
+    <body>
 
     <header class="header">
         <h1>Smash Hub</h1>
@@ -18,9 +20,9 @@
         <section class="sidebar">
             <h2>Navegación</h2>
             <ul>
-                <li><a href="../Proximos.html">Próximos torneos</a></li>
-                <li><a href="../Anteriores.html">Torneos terminados</a></li>
-                <li><a href="../Jugadores/Jugadores.html">Jugadores</a></li>
+                <li><a href="{{ url_for('proximos_page') }}">Próximos torneos</a></li>
+                <li><a href="{{ url_for('anteriores_page') }}">Torneos terminados</a></li>
+                <li><a href="{{ url_for('jugadores_page') }}">Jugadores</a></li>
             </ul>
         </section>
 
@@ -29,96 +31,99 @@
             <section class="banner">
                 <img src="https://images.start.gg/images/tournament/778070/image-6c543f1158b45e89d16cbac12a949380.jpg" alt="S Factor Banner">
             </section>
-            <section class="tournament-info">
 
-                <div class="tournament-card">
-                    <img src="../Torneos/s factor.webp" alt="S Factor Logo">
-                </div>
+            <section class="tournament-layout">
 
-                <div class="tournament-details">
-                    <h2>S Factor 12</h2>
-                    <p><strong>Tier:</strong> S+</p>
-                    <p><strong>Fecha:</strong> Jul 26 - Jul 27, 2025</p>
-                    <p><strong>Lugar:</strong> Histórica de los fuertes, Puebla</p>
-                </div>
+                <section class="tournament-info">
+                    <div class="tournament-card">
+                        <img src="{{ url_for('static', filename='Torneos/s factor.webp') }}" alt="S Factor Logo">
+                    </div>
 
-            </section>
+                    <div class="tournament-details">
+                        <h2>S Factor 12</h2>
+                        <p><strong>Tier:</strong> S+</p>
+                        <p><strong>Fecha:</strong> Jul 26 - Jul 27, 2025</p>
+                        <p><strong>Lugar:</strong> Histórica de los fuertes, Puebla</p>
+                    </div>
+                </section>
 
-            <section class="participants">
-                <h2>Participantes más relevantes</h2>
+                <section class="participants">
+                    <h2>Participantes más relevantes</h2>
 
-                <ul class="participants-container">
+                    <ul class="participants-container">
 
-                    <li class="participant">
-                        <img src="../PJ/snake.png" alt="">
-                        <span>Hurt</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/snake.png') }}">
+                            <span>Hurt</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/mr game and watch.png" alt="">
-                        <span>Miya</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/mr game and watch.png') }}">
+                            <span>Miya</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/cloud.png" alt="">
-                        <span>Sparg0</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/cloud.png') }}">
+                            <span>Sparg0</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/joker.png" alt="">
-                        <span>MkLeo</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/joker.png') }}">
+                            <span>MkLeo</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/Wario.png" alt="">
-                        <span>Glutonny</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/Wario.png') }}">
+                            <span>Glutonny</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/luigi.png" alt="">
-                        <span>Raru</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/luigi.png') }}">
+                            <span>Raru</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/Fox.png" alt="">
-                        <span>Light</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/Fox.png') }}">
+                            <span>Light</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/sonic.png" alt="">
-                        <span>Sonix</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/sonic.png') }}">
+                            <span>Sonix</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/Pikachu.png" alt="">
-                        <span>Shinymark</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/Pikachu.png') }}">
+                            <span>Shinymark</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/palutena.png" alt="">
-                        <span>Raflow</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/palutena.png') }}">
+                            <span>Raflow</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/samus.png" alt="">
-                        <span>Sisqui</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/samus.png') }}">
+                            <span>Sisqui</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/steve.png" alt="">
-                        <span>Toon</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
+                            <span>Toon</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/steve.png" alt="">
-                        <span>Syrup</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
+                            <span>Syrup</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/mr game and watch.png" alt="">
-                        <span>Maister</span>
-                    </li>
-                </ul>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/mr game and watch.png') }}">
+                            <span>Maister</span>
+                        </li>
+                    </ul>
+                </section>
+
             </section>
 
             <section class="top8">
@@ -128,16 +133,16 @@
                     <h3>Grand Finals</h3>
                     <div class="match highlight">
                         <div class="player">
-                            <img src="../PJ/steve.png">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
                             <span>Syrup</span>
-                        </div> 
+                        </div>
                         <div class="score">
                             <span class="points">0</span>
                             <span class="dash">-</span>
                             <span class="points">3</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/cloud.png">
+                            <img src="{{ url_for('static', filename='PJ/cloud.png') }}">
                             <span>Sparg0</span>
                         </div>
                     </div>
@@ -146,16 +151,16 @@
                 <div class="phase">
                     <div class="match highlight">
                         <div class="player">
-                            <img src="../PJ/cloud.png">
+                            <img src="{{ url_for('static', filename='PJ/cloud.png') }}">
                             <span>Sparg0</span>
-                        </div> 
+                        </div>
                         <div class="score">
                             <span class="points">1</span>
                             <span class="dash">-</span>
                             <span class="points">3</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/steve.png">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
                             <span>Syrup</span>
                         </div>
                     </div>
@@ -165,7 +170,7 @@
                     <h3>Losers Finals</h3>
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/steve.png">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
                             <span>Syrup</span>
                         </div>
                         <div class="score">
@@ -174,7 +179,7 @@
                             <span class="points">1</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/luigi.png">
+                            <img src="{{ url_for('static', filename='PJ/luigi.png') }}">
                             <span>Waka</span>
                         </div>
                     </div>
@@ -184,7 +189,7 @@
                     <h3>Losers Semis</h3>
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/luigi.png">
+                            <img src="{{ url_for('static', filename='PJ/luigi.png') }}">
                             <span>Raru</span>
                         </div>
                         <div class="score">
@@ -193,7 +198,7 @@
                             <span class="points">3</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/luigi.png">
+                            <img src="{{ url_for('static', filename='PJ/luigi.png') }}">
                             <span>Waka</span>
                         </div>
                     </div>
@@ -203,7 +208,7 @@
                     <h3>Winners Finals</h3>
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/cloud.png">
+                            <img src="{{ url_for('static', filename='PJ/cloud.png') }}">
                             <span>Sparg0</span>
                         </div>
                         <div class="score">
@@ -212,7 +217,7 @@
                             <span class="points">0</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/steve.png">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
                             <span>Syrup</span>
                         </div>
                     </div>
@@ -222,7 +227,7 @@
                     <h3>Losers Quarters</h3>
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/mr game and watch.png">
+                            <img src="{{ url_for('static', filename='PJ/mr game and watch.png') }}">
                             <span>Miya</span>
                         </div>
                         <div class="score">
@@ -231,7 +236,7 @@
                             <span class="points">3</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/luigi.png">
+                            <img src="{{ url_for('static', filename='PJ/luigi.png') }}">
                             <span>Raru</span>
                         </div>
                     </div>
@@ -240,7 +245,7 @@
                 <div class="phase">
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/luigi.png">
+                            <img src="{{ url_for('static', filename='PJ/luigi.png') }}">
                             <span>Waka</span>
                         </div>
                         <div class="score">
@@ -249,7 +254,7 @@
                             <span class="points">2</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/joker.png">
+                            <img src="{{ url_for('static', filename='PJ/joker.png') }}">
                             <span>MkLeo</span>
                         </div>
                     </div>
@@ -259,7 +264,7 @@
                     <h3>Winners Semis</h3>
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/cloud.png">
+                            <img src="{{ url_for('static', filename='PJ/cloud.png') }}">
                             <span>Sparg0</span>
                         </div>
                         <div class="score">
@@ -268,7 +273,7 @@
                             <span class="points">1</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/mr game and watch.png">
+                            <img src="{{ url_for('static', filename='PJ/mr game and watch.png') }}">
                             <span>Miya</span>
                         </div>
                     </div>
@@ -277,7 +282,7 @@
                 <div class="phase">
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/steve.png">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
                             <span>Syrup</span>
                         </div>
                         <div class="score">
@@ -286,7 +291,7 @@
                             <span class="points">1</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/luigi.png">
+                            <img src="{{ url_for('static', filename='PJ/luigi.png') }}">
                             <span>Waka</span>
                         </div>
                     </div>
@@ -296,7 +301,7 @@
                     <h3>Losers Eights</h3>
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/samus.png">
+                            <img src="{{ url_for('static', filename='PJ/samus.png') }}">
                             <span>Sisqui</span>
                         </div>
                         <div class="score">
@@ -305,7 +310,7 @@
                             <span class="points">3</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/luigi.png">
+                            <img src="{{ url_for('static', filename='PJ/luigi.png') }}">
                             <span>Raru</span>
                         </div>
                     </div>
@@ -314,7 +319,7 @@
                 <div class="phase">
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/Wario.png">
+                            <img src="{{ url_for('static', filename='PJ/Wario.png') }}">
                             <span>Glutonny</span>
                         </div>
                         <div class="score">
@@ -323,14 +328,13 @@
                             <span class="points">3</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/joker.png">
+                            <img src="{{ url_for('static', filename='PJ/joker.png') }}">
                             <span>MkLeo</span>
                         </div>
                     </div>
                 </div>
 
             </section>
-
         </section>
 
     </main>

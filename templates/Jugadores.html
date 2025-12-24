@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Smash Hub | Jugadores</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="Jugadores.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Jugadores.css') }}">
 </head>
 <body>
 
@@ -17,18 +19,15 @@
         <section class="sidebar">
             <h2>Navegación</h2>
             <ul>
-                <li><a href="../Proximos.html">Próximos torneos</a></li>
-                <li><a href="../Anteriores.html">Torneos terminados</a></li>
-                <li><a href="Jugadores.html">Jugadores</a></li>
+                <li><a href="{{ url_for('proximos_page') }}">Próximos torneos</a></li>
+                <li><a href="{{ url_for('anteriores_page') }}">Torneos terminados</a></li>
+                <li><a href="{{ url_for('jugadores_page') }}">Jugadores</a></li>
             </ul>
         </section>
 
         <section class="content">
-
             <h2 class="section-title">Ranking de jugadores</h2>
-
             <div class="players-grid"></div>
-
         </section>
 
     </main>
@@ -37,7 +36,12 @@
         <p>© 2025 Smash Hub</p>
     </footer>
 
-    <script src="JugadoresData.js"></script>
-    <script src="Jugadores.js"></script>
+    <!-- JS -->
+    <script>
+    const STATIC_PJ_URL = "{{ url_for('static', filename='PJ/') }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/JugadoresData.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/Jugadores.js') }}"></script>
+
 </body>
 </html>

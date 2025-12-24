@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>LMBM 2026 | Smash Hub</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../tournament.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tournament.css') }}">
 </head>
 <body>
 
@@ -17,113 +19,122 @@
         <section class="sidebar">
             <h2>Navegación</h2>
             <ul>
-                <li><a href="../Proximos.html">Próximos torneos</a></li>
-                <li><a href="../Anteriores.html">Torneos terminados</a></li>
-                <li><a href="../Jugadores/Jugadores.html">Jugadores</a></li>
+                <li><a href="{{ url_for('proximos_page') }}">Próximos torneos</a></li>
+                <li><a href="{{ url_for('anteriores_page') }}">Torneos terminados</a></li>
+                <li><a href="{{ url_for('jugadores_page') }}">Jugadores</a></li>
             </ul>
         </section>
 
         <section class="content">
 
+            <!-- Banner -->
             <section class="banner">
-                <img src="https://images.start.gg/images/tournament/813640/image-67f83a04fde787791d9012044e769ec4.png" alt="Afterburner Banner">
-            </section>
-            <section class="tournament-info">
-
-                <div class="tournament-card">
-                    <img src="../Torneos/LMBM.webp" alt="LMBM Logo">
-                </div>
-
-                <div class="tournament-details">
-                    <h2>Let's Make BIG Moves 2026</h2>
-                    <p><strong>Tier:</strong> S+</p>
-                    <p><strong>Fecha:</strong> Ene 23 - Ene 25, 2026</p>
-                    <p><strong>Lugar:</strong> New York City, New York</p>
-                </div>
-
+                <img src="https://images.start.gg/images/tournament/813640/image-67f83a04fde787791d9012044e769ec4.png" alt="LMBM Banner">
             </section>
 
-            <section class="participants">
-                <h2>Participantes más relevantes</h2>
+            <div class="tournament-layout">
 
-                <ul class="participants-container">
+                <!-- INFO TORNEO -->
+                <section class="tournament-info">
 
-                    <li class="participant">
-                        <img src="../PJ/snake.png" alt="">
-                        <span>Hurt</span>
-                    </li>
+                    <div class="tournament-card">
+                        <img src="{{ url_for('static', filename='Torneos/LMBM.webp') }}" alt="LMBM Logo">
+                    </div>
 
-                    <li class="participant">
-                        <img src="../PJ/cloud.png" alt="">
-                        <span>Sparg0</span>
-                    </li>
+                    <div class="tournament-details">
+                        <h2>Let's Make BIG Moves 2026</h2>
+                        <p><strong>Tier:</strong> S+</p>
+                        <p><strong>Fecha:</strong> Ene 23 - Ene 25, 2026</p>
+                        <p><strong>Lugar:</strong> New York City, New York</p>
+                    </div>
 
-                    <li class="participant">
-                        <img src="../PJ/joker.png" alt="">
-                        <span>MkLeo</span>
-                    </li>
+                </section>
 
-                    <li class="participant">
-                        <img src="../PJ/diddy kong.png" alt="">
-                        <span>Tweek</span>
-                    </li>
+                <!-- PARTICIPANTES -->
+                <section class="participants">
+                    <h2>Participantes más relevantes</h2>
 
-                    <li class="participant">
-                        <img src="../PJ/Mega man.png" alt="">
-                        <span>Peabnut</span>
-                    </li>
+                    <ul class="participants-container">
 
-                    <li class="participant">
-                        <img src="../PJ/Fox.png" alt="">
-                        <span>Light</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/snake.png') }}">
+                            <span>Hurt</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/rob.png" alt="">
-                        <span>Zomba</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/cloud.png') }}">
+                            <span>Sparg0</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/sonic.png" alt="">
-                        <span>Sonix</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/joker.png') }}">
+                            <span>MkLeo</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/ryu.png" alt="">
-                        <span>Asimo</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/diddy kong.png') }}">
+                            <span>Tweek</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/roy.png" alt="">
-                        <span>Kola</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/Mega man.png') }}">
+                            <span>Peabnut</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/Pikachu.png" alt="">
-                        <span>Shinymark</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/Fox.png') }}">
+                            <span>Light</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/steve.png" alt="">
-                        <span>Syrup</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/rob.png') }}">
+                            <span>Zomba</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/sonic.png" alt="">
-                        <span>Wrath</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/sonic.png') }}">
+                            <span>Sonix</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/palutena.png" alt="">
-                        <span>Lui$</span>
-                    </li>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/ryu.png') }}">
+                            <span>Asimo</span>
+                        </li>
 
-                    <li class="participant">
-                        <img src="../PJ/mr game and watch.png" alt="">
-                        <span>Maister</span>
-                    </li>
-                </ul>
-            </section>
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/roy.png') }}">
+                            <span>Kola</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/Pikachu.png') }}">
+                            <span>Shinymark</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
+                            <span>Syrup</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/sonic.png') }}">
+                            <span>Wrath</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/palutena.png') }}">
+                            <span>Lui$</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/mr game and watch.png') }}">
+                            <span>Maister</span>
+                        </li>
+
+                    </ul>
+                </section>
+
+            </div>
 
         </section>
 

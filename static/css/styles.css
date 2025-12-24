@@ -11,8 +11,27 @@
     background: linear-gradient(90deg, #b30000, #1a1a1a);
     color: white;
     text-align: center;
-    padding: 25px;
     letter-spacing: 2px;
+    position: relative;
+    padding: 16px 32px;
+}
+
+.logout-btn {
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    background: #cc3643;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logout-btn:hover {
+    background: #c62828;
 }
 
 /* GRID principal */
@@ -62,12 +81,12 @@
     padding: 20px;
 
     display: flex;
-    flex-direction: column;   /* 🔑 CLAVE */
+    flex-direction: column;   
     gap: 30px;
 
     background:
         linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-        url("fondo.jpg");
+        url("../fondo.jpg");
     background-size: contain;
     background-position: 100% 30%;
     background-repeat: no-repeat;

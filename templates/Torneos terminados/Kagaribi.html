@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Kagaribi 13 | Smash Hub</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../tournament.css">
+
+    <!-- CSS (static/css) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tournament.css') }}">
 </head>
 <body>
 
@@ -17,9 +19,9 @@
         <section class="sidebar">
             <h2>Navegación</h2>
             <ul>
-                <li><a href="../Proximos.html">Próximos torneos</a></li>
-                <li><a href="../Anteriores.html">Torneos terminados</a></li>
-                <li><a href="../Jugadores/Jugadores.html">Jugadores</a></li>
+                <li><a href="{{ url_for('proximos_page') }}">Próximos torneos</a></li>
+                <li><a href="{{ url_for('anteriores_page') }}">Torneos terminados</a></li>
+                <li><a href="{{ url_for('jugadores_page') }}">Jugadores</a></li>
             </ul>
         </section>
 
@@ -28,129 +30,131 @@
             <section class="banner">
                 <img src="https://images.start.gg/images/tournament/755446/image-965b61a1f2bde43a374eb82347f90858.png" alt="Kagaribi Banner">
             </section>
-            <section class="tournament-info">
 
-                <div class="tournament-card">
-                    <img src="../Torneos/kagaribi.webp" alt="Kagaribi Logo">
-                </div>
+            <section class="tournament-layout">
+                <section class="tournament-info">
 
-                <div class="tournament-details">
-                    <h2>Kagaribi 13</h2>
-                    <p><strong>Tier:</strong> SP</p>
-                    <p><strong>Fecha:</strong> May 04 - May 05, 2025</p>
-                    <p><strong>Lugar:</strong> Tokorozawa, Saitama</p>
-                </div>
+                    <div class="tournament-card">
+                        <img src="{{ url_for('static', filename='Torneos/kagaribi.webp') }}" alt="Kagaribi Logo">
+                    </div>
 
+                    <div class="tournament-details">
+                        <h2>Kagaribi 13</h2>
+                        <p><strong>Tier:</strong> SP</p>
+                        <p><strong>Fecha:</strong> May 04 - May 05, 2025</p>
+                        <p><strong>Lugar:</strong> Tokorozawa, Saitama</p>
+                    </div>
+
+                </section>
+
+                <section class="participants">
+                    <h2>Participantes más relevantes</h2>
+
+                    <ul class="participants-container">
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
+                            <span>Acola</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/mr game and watch.png') }}">
+                            <span>Miya</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/diddy kong.png') }}">
+                            <span>Tweek</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/snake.png') }}">
+                            <span>Hurt</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/cloud.png') }}">
+                            <span>Sparg0</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/joker.png') }}">
+                            <span>MkLeo</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/Wario.png') }}">
+                            <span>Glutonny</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/rob.png') }}">
+                            <span>Zomba</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/Fox.png') }}">
+                            <span>Light</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/sonic.png') }}">
+                            <span>Sonix</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/ryu.png') }}">
+                            <span>Asimo</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/luigi.png') }}">
+                            <span>Raru</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/min min.png') }}">
+                            <span>Doramigi</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/olimar.png') }}">
+                            <span>Shuton</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
+                            <span>Carmelo</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/kazuya.png') }}">
+                            <span>Tea</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
+                            <span>Syrup</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/roy.png') }}">
+                            <span>Kola</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/Pikachu.png') }}">
+                            <span>Shinymark</span>
+                        </li>
+
+                        <li class="participant">
+                            <img src="{{ url_for('static', filename='PJ/palutena.png') }}">
+                            <span>Raflow</span>
+                        </li>
+
+                    </ul>
+                </section>
             </section>
-
-            <section class="participants">
-                <h2>Participantes más relevantes</h2>
-
-                <ul class="participants-container">
-
-                    <li class="participant">
-                        <img src="../PJ/steve.png" alt="">
-                        <span>Acola</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/mr game and watch.png" alt="">
-                        <span>Miya</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/diddy kong.png" alt="">
-                        <span>Tweek</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/snake.png" alt="">
-                        <span>Hurt</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/cloud.png" alt="">
-                        <span>Sparg0</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/joker.png" alt="">
-                        <span>MkLeo</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/Wario.png" alt="">
-                        <span>Glutonny</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/rob.png" alt="">
-                        <span>Zomba</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/Fox.png" alt="">
-                        <span>Light</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/sonic.png" alt="">
-                        <span>Sonix</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/ryu.png" alt="">
-                        <span>Asimo</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/luigi.png" alt="">
-                        <span>Raru</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/min min.png" alt="">
-                        <span>Doramigi</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/olimar.png" alt="">
-                        <span>Shuton</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/steve.png" alt="">
-                        <span>Carmelo</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/kazuya.png" alt="">
-                        <span>Tea</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/steve.png" alt="">
-                        <span>Syrup</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/roy.png" alt="">
-                        <span>Kola</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/Pikachu.png" alt="">
-                        <span>Shinymark</span>
-                    </li>
-
-                    <li class="participant">
-                        <img src="../PJ/palutena.png" alt="">
-                        <span>Raflow</span>
-                    </li>
-
-                </ul>
-            </section>
-
             <section class="top8">
                 <h2>Top 8</h2>
 
@@ -158,7 +162,7 @@
                     <h3>Grand Finals</h3>
                     <div class="match highlight">
                         <div class="player">
-                            <img src="../PJ/steve.png">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
                             <span>Acola</span>
                         </div> 
                         <div class="score">
@@ -167,7 +171,7 @@
                             <span class="points">1</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/luigi.png">
+                            <img src="{{ url_for('static', filename='PJ/luigi.png') }}">
                             <span>Raru</span>
                         </div>
                     </div>
@@ -176,7 +180,7 @@
                 <div class="phase">
                     <div class="match highlight">
                         <div class="player">
-                            <img src="../PJ/luigi.png">
+                            <img src="{{ url_for('static', filename='PJ/luigi.png') }}">
                             <span>Raru</span>
                         </div> 
                         <div class="score">
@@ -185,7 +189,7 @@
                             <span class="points">3</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/steve.png">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
                             <span>Acola</span>
                         </div>
                     </div>
@@ -195,7 +199,7 @@
                     <h3>Losers Finals</h3>
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/steve.png">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
                             <span>Acola</span>
                         </div>
                         <div class="score">
@@ -204,7 +208,7 @@
                             <span class="points">2</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/mr game and watch.png">
+                            <img src="{{ url_for('static', filename='PJ/mr game and watch.png') }}">
                             <span>Miya</span>
                         </div>
                     </div>
@@ -214,7 +218,7 @@
                     <h3>Losers Semis</h3>
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/diddy kong.png">
+                            <img src="{{ url_for('static', filename='PJ/diddy kong.png') }}">
                             <span>Tweek</span>
                         </div>
                         <div class="score">
@@ -223,7 +227,7 @@
                             <span class="points">3</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/mr game and watch.png">
+                            <img src="{{ url_for('static', filename='PJ/mr game and watch.png') }}">
                             <span>Miya</span>
                         </div>
                     </div>
@@ -233,7 +237,7 @@
                     <h3>Winners Finals</h3>
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/luigi.png">
+                            <img src="{{ url_for('static', filename='PJ/luigi.png') }}">
                             <span>Raru</span>
                         </div>
                         <div class="score">
@@ -242,7 +246,7 @@
                             <span class="points">1</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/steve.png">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
                             <span>Acola</span>
                         </div>
                     </div>
@@ -252,7 +256,7 @@
                     <h3>Losers Quarters</h3>
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/diddy kong.png">
+                            <img src="{{ url_for('static', filename='PJ/diddy kong.png') }}">
                             <span>Tweek</span>
                         </div>
                         <div class="score">
@@ -261,7 +265,7 @@
                             <span class="points">1</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/min min.png">
+                            <img src="{{ url_for('static', filename='PJ/min min.png') }}">
                             <span>Doramigi</span>
                         </div>
                     </div>
@@ -270,7 +274,7 @@
                 <div class="phase">
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/sonic.png">
+                            <img src="{{ url_for('static', filename='PJ/sonic.png') }}">
                             <span>Wrath</span>
                         </div>
                         <div class="score">
@@ -279,7 +283,7 @@
                             <span class="points">3</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/mr game and watch.png">
+                            <img src="{{ url_for('static', filename='PJ/mr game and watch.png') }}">
                             <span>Miya</span>
                         </div>
                     </div>
@@ -289,7 +293,7 @@
                     <h3>Winners Semis</h3>
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/sonic.png">
+                            <img src="{{ url_for('static', filename='PJ/sonic.png') }}">
                             <span>Wrath</span>
                         </div>
                         <div class="score">
@@ -298,7 +302,7 @@
                             <span class="points">3</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/luigi.png">
+                            <img src="{{ url_for('static', filename='PJ/luigi.png') }}">
                             <span>Raru</span>
                         </div>
                     </div>
@@ -307,7 +311,7 @@
                 <div class="phase">
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/steve.png">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
                             <span>Acola</span>
                         </div>
                         <div class="score">
@@ -316,7 +320,7 @@
                             <span class="points">2</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/diddy kong.png">
+                            <img src="{{ url_for('static', filename='PJ/diddy kong.png') }}">
                             <span>Tweek</span>
                         </div>
                     </div>
@@ -326,7 +330,7 @@
                     <h3>Losers Eights</h3>
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/min min.png">
+                            <img src="{{ url_for('static', filename='PJ/min min.png') }}">
                             <span>Doramigi</span>
                         </div>
                         <div class="score">
@@ -335,7 +339,7 @@
                             <span class="points">0</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/Wario.png">
+                            <img src="{{ url_for('static', filename='PJ/Wario.png') }}">
                             <span>Glutonny</span>
                         </div>
                     </div>
@@ -344,7 +348,7 @@
                 <div class="phase">
                     <div class="match">
                         <div class="player">
-                            <img src="../PJ/mr game and watch.png">
+                            <img src="{{ url_for('static', filename='PJ/mr game and watch.png') }}">
                             <span>Miya</span>
                         </div>
                         <div class="score">
@@ -353,7 +357,7 @@
                             <span class="points">0</span>
                         </div>
                         <div class="player">
-                            <img src="../PJ/steve.png">
+                            <img src="{{ url_for('static', filename='PJ/steve.png') }}">
                             <span>Carmelo</span>
                         </div>
                     </div>

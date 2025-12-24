@@ -8,7 +8,7 @@ jugadores.forEach(jugador => {
 
   // icono
   const img = document.createElement("img");
-  img.src = `../PJ/${jugador.icono}`;
+  img.src = STATIC_PJ_URL + jugador.icono;
   img.alt = jugador.personaje;
 
   // top + nombre

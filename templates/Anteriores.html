@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Torneos Esports</title>
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
 
@@ -21,32 +21,33 @@
                 <li><a href="{{ url_for('jugadores_page') }}">Jugadores</a></li>
             </ul>
         </section>
- 
+
         <section class="content">
             <h2 class="section-title">Torneos terminados</h2>
 
             <div class="cards-grid">
-                <a href="Torneos terminados/Kagaribi.html" class="card-link">
+
+                <a href="{{ url_for('torneo_page', tipo='terminados', slug='Kagaribi') }}" class="card-link">
                     <div class="card">
-                        <img src="../static/Torneos/kagaribi.webp" alt="Kagaribi 13">
+                        <img src="{{ url_for('static', filename='Torneos/kagaribi.webp') }}" alt="Kagaribi 13">
                         <h3>Kagaribi 13</h3>
                         <p>May 04 - May 05, 2025</p>
                         <p>Tokorozawa, Saitama</p>
                     </div>
                 </a>
 
-                <a href="Torneos terminados/Factor.html" class="card-link">
+                <a href="{{ url_for('torneo_page', tipo='terminados', slug='Factor') }}" class="card-link">
                     <div class="card">
-                        <img src="../static/Torneos/s factor.webp" alt="S Factor 12">
+                        <img src="{{ url_for('static', filename='Torneos/s factor.webp') }}" alt="S Factor 12">
                         <h3>S Factor 12</h3>
                         <p>Jul 26 - Jul 27, 2025</p>
                         <p>Histórica de los fuertes, Puebla</p>
                     </div>
                 </a>
 
-                <a href="Torneos terminados/Supernova.html" class="card-link">
+                <a href="{{ url_for('torneo_page', tipo='terminados', slug='Supernova') }}" class="card-link">
                     <div class="card">
-                        <img src="../static/Torneos/supernova.webp" alt="Supernova 2025">
+                        <img src="{{ url_for('static', filename='Torneos/supernova.webp') }}" alt="Supernova 2025">
                         <h3>Supernova 2025</h3>
                         <p>Ago 07 - Ago 10, 2025</p>
                         <p>Chantilly, VA</p>
@@ -54,7 +55,6 @@
                 </a>
 
             </div>
-
         </section>
 
     </main>
