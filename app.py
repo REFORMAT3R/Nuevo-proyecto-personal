@@ -19,13 +19,13 @@ db = SQLAlchemy(app)
 # ======== TABLA USUARIOS REAL =========
 class Usuario(db.Model):
     __tablename__ = "usuarios"
-
-    usuario = db.Column(db.String(50), primary_key=True)    
+  
     nombres = db.Column(db.String(100), nullable=False)
     apellidos = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     nacimiento = db.Column(db.Date, nullable=False)
     genero = db.Column(db.String(20), nullable=False)
+    usuario = db.Column(db.String(50), primary_key=True)
     contrasena = db.Column(db.String(200), nullable=False)   
 
 # ======== PÁGINAS =========
