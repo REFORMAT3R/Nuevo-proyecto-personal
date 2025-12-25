@@ -1,5 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
+from werkzeug.security import generate_password_hash
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 import os
 
 app = Flask(__name__)
@@ -71,6 +73,63 @@ def torneo_page(tipo, slug):
 with app.app_context():
     db.create_all()
 
+@app.route("/api/register", methods=["POST"])
+def api_register():
+    data = request.get_json()
+
+    usuario = data.get("usuario")
+    nombres = data.get("nombres")
+    apellidos = data.get("apellidos")
+    email = data.get("correo")
+    nacimiento = data.get("nacimiento")
+    genero = data.get("genero")
+    contrasena = data.get("contrasena")
+
+    # Validar si ya existe
+    existe = Usuario.query.filter(
+        (Usuario.usuario == usuario) | (Usuario.email == email)
+    ).first()
+
+    if existe:
+        return jsonify({"error": "usuario_o_email_repetido"}), 409
+
+    nuevo = Usuario(
+        usuario=usuario,
+        nombres=nombres,
+        apellidos=apellidos,
+        email=email,
+        nacimiento=datetime.strptime(nacimiento, "%Y-%m-%d"),
+        genero=genero,
+        contrasena=generate_password_hash(contrasena)
+    )
+
+    db.session.add(nuevo)
+    db.session.commit()
+
+    return jsonify({"message": "creado"}), 201
+
+@app.route("/login", methods=["POST"])
+def login():
+    data = request.get_json()
+
+    usuario = data.get("usuario")
+    contrasena = data.get("contrasena")
+
+    if not usuario or not contrasena:
+        return jsonify({"error": "Faltan datos"}), 400
+
+    # Buscar usuario por username o email
+    user = Usuario.query.filter(
+        (Usuario.usuario == usuario) | (Usuario.email == usuario)
+    ).first()
+
+    if not user:
+        return jsonify({"error": "Usuario no existe"}), 401
+
+    if check_password_hash(user.contrasena, contrasena):
+        return jsonify({"ok": True}), 200
+
+    return jsonify({"error": "Contraseña incorrecta"}), 401
 
 # ======== INICIO DEL SERVIDOR =========
 if __name__ == "__main__":
