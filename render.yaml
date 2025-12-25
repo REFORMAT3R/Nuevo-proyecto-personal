@@ -1,6 +1,14 @@
 services:
   - type: web
-    name: smash-hub
+    name: smashhub
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: smashhub-db
+          property: connectionString
+
+databases:
+  - name: smashhub-db

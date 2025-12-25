@@ -1,20 +1,34 @@
-from flask import Flask, request, jsonify, render_template
-import mysql.connector
-from flask_bcrypt import Bcrypt
+from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
-bcrypt = Bcrypt(app)
 
-# ================== CONEXIÓN DB ==================
-def conectar():
-    return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="smashhub"
-    )
+# ================== BASE DE DATOS ==================
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-# ================== PÁGINAS ==================
+if DATABASE_URL and "sslmode" not in DATABASE_URL:
+    DATABASE_URL += "?sslmode=require"
+
+app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+db = SQLAlchemy(app)
+
+
+# ======== TABLA USUARIOS REAL =========
+class Usuario(db.Model):
+    __tablename__ = "usuarios"
+
+    usuario = db.Column(db.String(50), primary_key=True)    
+    nombres = db.Column(db.String(100), nullable=False)
+    apellidos = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    nacimiento = db.Column(db.Date, nullable=False)
+    genero = db.Column(db.String(20), nullable=False)
+    contrasena = db.Column(db.String(200), nullable=False)   
+
+# ======== PÁGINAS =========
 @app.route("/")
 def login_page():
     return render_template("login.html")
@@ -26,6 +40,7 @@ def register_page():
 @app.route("/proximos")
 def proximos_page():
     return render_template("proximos.html")
+
 @app.route("/jugadores")
 def jugadores_page():
     return render_template("jugadores.html")
@@ -34,6 +49,8 @@ def jugadores_page():
 def anteriores_page():
     return render_template("anteriores.html")
 
+
+# ======== TORNEO DINÁMICO =========
 @app.route("/torneo/<tipo>/<slug>")
 def torneo_page(tipo, slug):
     try:
@@ -49,88 +66,12 @@ def torneo_page(tipo, slug):
     except:
         return "Torneo no encontrado", 404
 
-# ================== REGISTER ==================
-@app.route("/api/register", methods=["POST"])
-def register():
-    data = request.get_json(silent=True)
-    print("DATA:", data)
 
-    if not data:
-        return jsonify({"status": "no data"}), 400
+# ======== CREAR TABLAS EN LA DB =========
+with app.app_context():
+    db.create_all()
 
-    try:
-        conexion = conectar()
-        cursor = conexion.cursor()
 
-        cursor.execute(
-            "SELECT 1 FROM usuarios WHERE email=%s OR usuario=%s",
-            (data["correo"], data["usuario"])
-        )
-
-        if cursor.fetchone():
-            return jsonify({"status": "exists"}), 409
-
-        password_hash = bcrypt.generate_password_hash(
-            data["contrasena"]
-        ).decode("utf-8")
-
-        cursor.execute("""
-            INSERT INTO usuarios
-            (nombres, apellidos, email, nacimiento, genero, usuario, contrasena)
-            VALUES (%s,%s,%s,%s,%s,%s,%s)
-        """, (
-            data["nombres"],
-            data["apellidos"],
-            data["correo"],
-            data["nacimiento"],
-            data["genero"],
-            data["usuario"],
-            password_hash
-        ))
-
-        conexion.commit()
-        return jsonify({"status": "ok"})
-
-    except Exception as e:
-        print("ERROR SQL:", e)
-        return jsonify({"status": "error", "msg": str(e)}), 500
-
-    finally:
-        cursor.close()
-        conexion.close()
-
-# ================== LOGIN ==================
-@app.route("/login", methods=["POST"])
-def login():
-    data = request.get_json(force=True)
-
-    if not data:
-        return jsonify({"status": "bad request"}), 400
-
-    user = data.get("usuario")
-    password = data.get("contrasena")
-
-    if not user or not password:
-        return jsonify({"status": "missing data"}), 400
-
-    conexion = conectar()
-    cursor = conexion.cursor(dictionary=True)
-
-    cursor.execute("""
-        SELECT * FROM usuarios
-        WHERE email=%s OR usuario=%s
-    """, (user, user))
-
-    result = cursor.fetchone()
-
-    cursor.close()
-    conexion.close()
-
-    if result and bcrypt.check_password_hash(result["contrasena"], password):
-        return jsonify({"status": "ok"})
-    else:
-        return jsonify({"status": "error"}), 401
-
-# ================== MAIN ==================
+# ======== INICIO DEL SERVIDOR =========
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=10000)
