@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash 
+from werkzeug.security import check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
