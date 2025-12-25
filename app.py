@@ -42,15 +42,15 @@ def register_page():
 
 @app.route("/proximos")
 def proximos_page():
-    return render_template("proximos.html")
+    return render_template("Proximos.html")
 
 @app.route("/jugadores")
 def jugadores_page():
-    return render_template("jugadores.html")
+    return render_template("Jugadores.html")
 
 @app.route("/anteriores")
 def anteriores_page():
-    return render_template("anteriores.html")
+    return render_template("Anteriores.html")
 
 
 # ======== TORNEO DINÁMICO =========
